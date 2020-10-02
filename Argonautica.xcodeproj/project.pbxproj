@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103F63292527E5D7001A2522 /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F63282527E5D7001A2522 /* Earth.swift */; };
+		103F632B2527E7E8001A2522 /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F632A2527E7E8001A2522 /* Satellite.swift */; };
 		10CF9DD22527E3A10005666E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DD12527E3A10005666E /* AppDelegate.swift */; };
 		10CF9DD42527E3A10005666E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 10CF9DD32527E3A10005666E /* art.scnassets */; };
 		10CF9DD62527E3A10005666E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DD52527E3A10005666E /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		103F63282527E5D7001A2522 /* Earth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
+		103F632A2527E7E8001A2522 /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
 		10CF9DCE2527E3A10005666E /* Argonautica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argonautica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CF9DD12527E3A10005666E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10CF9DD32527E3A10005666E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				10CF9DDA2527E3A30005666E /* Assets.xcassets */,
 				10CF9DDC2527E3A30005666E /* LaunchScreen.storyboard */,
 				10CF9DDF2527E3A30005666E /* Info.plist */,
+				103F63282527E5D7001A2522 /* Earth.swift */,
+				103F632A2527E7E8001A2522 /* Satellite.swift */,
 			);
 			path = Argonautica;
 			sourceTree = "<group>";
@@ -261,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				10CF9DD62527E3A10005666E /* ViewController.swift in Sources */,
+				103F632B2527E7E8001A2522 /* Satellite.swift in Sources */,
 				10CF9DD22527E3A10005666E /* AppDelegate.swift in Sources */,
+				103F63292527E5D7001A2522 /* Earth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

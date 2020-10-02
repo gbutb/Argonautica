@@ -16,23 +16,44 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Set the view's delegate
         sceneView.delegate = self
-        
+
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
+
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
+        let scene = SCNScene()
+
         // Set the scene to the view
         sceneView.scene = scene
+
+        let earthModel = Earth(radius: 0.05)
+        self.sceneView.scene.rootNode.addChildNode(earthModel)
+        
+        // TODO: Refactor
+        let satellite = Satellite(model: "")
+        let testNode = SCNNode()
+        satellite.position = SCNVector3(0.07, 0, 0)
+        testNode.addChildNode(satellite)
+        let anim = CABasicAnimation(keyPath: "rotation")
+        anim.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
+        anim.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
+        anim.duration = 5
+        anim.repeatCount = .infinity
+        testNode.addAnimation(anim, forKey: "spin around")
+
+        self.sceneView.scene.rootNode.addChildNode(testNode)
+        
+        let orbit = SCNTorus(ringRadius: 0.07, pipeRadius: 0.001)
+        self.sceneView.scene.rootNode.addChildNode(SCNNode(geometry: orbit))
+        // END
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
 
