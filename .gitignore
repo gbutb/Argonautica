@@ -44,3 +44,6 @@ DerivedData/
 
 ## Ignore env specific files
 .vscode/
+
+## Ignore Pods
+Pods/

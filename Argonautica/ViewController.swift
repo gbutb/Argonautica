@@ -30,7 +30,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
 
         let earthModel = Earth(radius: 0.05)
-        let satellite = Satellite(model: "", orbit: CircularOrbit(normalizedRadius: 2))
+        let satellite = Satellite(model: "", orbit: EllipticalOrbit(normalizedRadius1: 2, normalizedRadius2: 3))
         earthModel.addSatellite(satellite)
         self.sceneView.scene.rootNode.addChildNode(earthModel)
     }

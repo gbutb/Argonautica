@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		103F63292527E5D7001A2522 /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F63282527E5D7001A2522 /* Earth.swift */; };
 		103F632B2527E7E8001A2522 /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F632A2527E7E8001A2522 /* Satellite.swift */; };
+		1051962A2528952A00230FE3 /* EllipticalOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196292528952A00230FE3 /* EllipticalOrbit.swift */; };
 		10CF2AA7252874DC00C22E68 /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF2AA6252874DC00C22E68 /* Orbit.swift */; };
 		10CF2AA92528759D00C22E68 /* CircularOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF2AA82528759D00C22E68 /* CircularOrbit.swift */; };
 		10CF9DD22527E3A10005666E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DD12527E3A10005666E /* AppDelegate.swift */; };
@@ -19,6 +20,9 @@
 		10CF9DDE2527E3A30005666E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10CF9DDC2527E3A30005666E /* LaunchScreen.storyboard */; };
 		10CF9DE92527E3A30005666E /* ArgonauticaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DE82527E3A30005666E /* ArgonauticaTests.swift */; };
 		10CF9DF42527E3A30005666E /* ArgonauticaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DF32527E3A30005666E /* ArgonauticaUITests.swift */; };
+		2391A4F5F21A44819CAA1874 /* Pods_ArgonauticaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32ADE751C0664E035DA152E /* Pods_ArgonauticaTests.framework */; };
+		55FD70C0635529402F4DF26C /* Pods_Argonautica_ArgonauticaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769E09078239B6A5B7ED610F /* Pods_Argonautica_ArgonauticaUITests.framework */; };
+		FBFC444397E5CF1119A35ACE /* Pods_Argonautica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D242CD85270000997944906D /* Pods_Argonautica.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,7 @@
 /* Begin PBXFileReference section */
 		103F63282527E5D7001A2522 /* Earth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
 		103F632A2527E7E8001A2522 /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
+		105196292528952A00230FE3 /* EllipticalOrbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticalOrbit.swift; sourceTree = "<group>"; };
 		10CF2AA6252874DC00C22E68 /* Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orbit.swift; sourceTree = "<group>"; };
 		10CF2AA82528759D00C22E68 /* CircularOrbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularOrbit.swift; sourceTree = "<group>"; };
 		10CF9DCE2527E3A10005666E /* Argonautica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argonautica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +62,15 @@
 		10CF9DEF2527E3A30005666E /* ArgonauticaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgonauticaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CF9DF32527E3A30005666E /* ArgonauticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgonauticaUITests.swift; sourceTree = "<group>"; };
 		10CF9DF52527E3A30005666E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E28F554D89D408969F4B5E8 /* Pods-ArgonauticaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgonauticaTests.debug.xcconfig"; path = "Target Support Files/Pods-ArgonauticaTests/Pods-ArgonauticaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		578F044463D42D6F5C6F8748 /* Pods-Argonautica-ArgonauticaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argonautica-ArgonauticaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Argonautica-ArgonauticaUITests/Pods-Argonautica-ArgonauticaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		58C70D69301CF0201A1BF6B7 /* Pods-Argonautica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argonautica.release.xcconfig"; path = "Target Support Files/Pods-Argonautica/Pods-Argonautica.release.xcconfig"; sourceTree = "<group>"; };
+		769E09078239B6A5B7ED610F /* Pods_Argonautica_ArgonauticaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Argonautica_ArgonauticaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2DE4116A1434B79FE798F1 /* Pods-Argonautica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argonautica.debug.xcconfig"; path = "Target Support Files/Pods-Argonautica/Pods-Argonautica.debug.xcconfig"; sourceTree = "<group>"; };
+		A8175153212AE8695174920F /* Pods-ArgonauticaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgonauticaTests.release.xcconfig"; path = "Target Support Files/Pods-ArgonauticaTests/Pods-ArgonauticaTests.release.xcconfig"; sourceTree = "<group>"; };
+		C5B05B3F8F03E7D7858D51B2 /* Pods-Argonautica-ArgonauticaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argonautica-ArgonauticaUITests.release.xcconfig"; path = "Target Support Files/Pods-Argonautica-ArgonauticaUITests/Pods-Argonautica-ArgonauticaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D242CD85270000997944906D /* Pods_Argonautica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Argonautica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E32ADE751C0664E035DA152E /* Pods_ArgonauticaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgonauticaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBFC444397E5CF1119A35ACE /* Pods_Argonautica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2391A4F5F21A44819CAA1874 /* Pods_ArgonauticaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FD70C0635529402F4DF26C /* Pods_Argonautica_ArgonauticaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +108,8 @@
 				10CF9DE72527E3A30005666E /* ArgonauticaTests */,
 				10CF9DF22527E3A30005666E /* ArgonauticaUITests */,
 				10CF9DCF2527E3A10005666E /* Products */,
+				BF8DDB04E4C9819EFCA49CCA /* Pods */,
+				F40D28859A9D3FC409056649 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +137,7 @@
 				103F632A2527E7E8001A2522 /* Satellite.swift */,
 				10CF2AA6252874DC00C22E68 /* Orbit.swift */,
 				10CF2AA82528759D00C22E68 /* CircularOrbit.swift */,
+				105196292528952A00230FE3 /* EllipticalOrbit.swift */,
 			);
 			path = Argonautica;
 			sourceTree = "<group>";
@@ -140,6 +160,29 @@
 			path = ArgonauticaUITests;
 			sourceTree = "<group>";
 		};
+		BF8DDB04E4C9819EFCA49CCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C2DE4116A1434B79FE798F1 /* Pods-Argonautica.debug.xcconfig */,
+				58C70D69301CF0201A1BF6B7 /* Pods-Argonautica.release.xcconfig */,
+				578F044463D42D6F5C6F8748 /* Pods-Argonautica-ArgonauticaUITests.debug.xcconfig */,
+				C5B05B3F8F03E7D7858D51B2 /* Pods-Argonautica-ArgonauticaUITests.release.xcconfig */,
+				2E28F554D89D408969F4B5E8 /* Pods-ArgonauticaTests.debug.xcconfig */,
+				A8175153212AE8695174920F /* Pods-ArgonauticaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F40D28859A9D3FC409056649 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D242CD85270000997944906D /* Pods_Argonautica.framework */,
+				769E09078239B6A5B7ED610F /* Pods_Argonautica_ArgonauticaUITests.framework */,
+				E32ADE751C0664E035DA152E /* Pods_ArgonauticaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10CF9DF82527E3A30005666E /* Build configuration list for PBXNativeTarget "Argonautica" */;
 			buildPhases = (
+				7062BAB37B2042BC51D30F6F /* [CP] Check Pods Manifest.lock */,
 				10CF9DCA2527E3A10005666E /* Sources */,
 				10CF9DCB2527E3A10005666E /* Frameworks */,
 				10CF9DCC2527E3A10005666E /* Resources */,
+				19711DC1826B23AD6F27319D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10CF9DFB2527E3A30005666E /* Build configuration list for PBXNativeTarget "ArgonauticaTests" */;
 			buildPhases = (
+				BBB6F9DDEBE7539A57368A05 /* [CP] Check Pods Manifest.lock */,
 				10CF9DE02527E3A30005666E /* Sources */,
 				10CF9DE12527E3A30005666E /* Frameworks */,
 				10CF9DE22527E3A30005666E /* Resources */,
@@ -182,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10CF9DFE2527E3A30005666E /* Build configuration list for PBXNativeTarget "ArgonauticaUITests" */;
 			buildPhases = (
+				1F58B1D848AEB4FFE2D75B62 /* [CP] Check Pods Manifest.lock */,
 				10CF9DEB2527E3A30005666E /* Sources */,
 				10CF9DEC2527E3A30005666E /* Frameworks */,
 				10CF9DED2527E3A30005666E /* Resources */,
+				F0CCF0BAEC04CDA410D2A8E8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,12 +315,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19711DC1826B23AD6F27319D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argonautica/Pods-Argonautica-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argonautica/Pods-Argonautica-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Argonautica/Pods-Argonautica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F58B1D848AEB4FFE2D75B62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Argonautica-ArgonauticaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7062BAB37B2042BC51D30F6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Argonautica-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBB6F9DDEBE7539A57368A05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArgonauticaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0CCF0BAEC04CDA410D2A8E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argonautica-ArgonauticaUITests/Pods-Argonautica-ArgonauticaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argonautica-ArgonauticaUITests/Pods-Argonautica-ArgonauticaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Argonautica-ArgonauticaUITests/Pods-Argonautica-ArgonauticaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10CF9DCA2527E3A10005666E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				10CF9DD62527E3A10005666E /* ViewController.swift in Sources */,
+				1051962A2528952A00230FE3 /* EllipticalOrbit.swift in Sources */,
 				103F632B2527E7E8001A2522 /* Satellite.swift in Sources */,
 				10CF9DD22527E3A10005666E /* AppDelegate.swift in Sources */,
 				10CF2AA92528759D00C22E68 /* CircularOrbit.swift in Sources */,
@@ -448,6 +600,7 @@
 		};
 		10CF9DF92527E3A30005666E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C2DE4116A1434B79FE798F1 /* Pods-Argonautica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +619,7 @@
 		};
 		10CF9DFA2527E3A30005666E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58C70D69301CF0201A1BF6B7 /* Pods-Argonautica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -484,6 +638,7 @@
 		};
 		10CF9DFC2527E3A30005666E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E28F554D89D408969F4B5E8 /* Pods-ArgonauticaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +661,7 @@
 		};
 		10CF9DFD2527E3A30005666E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8175153212AE8695174920F /* Pods-ArgonauticaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +684,7 @@
 		};
 		10CF9DFF2527E3A30005666E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 578F044463D42D6F5C6F8748 /* Pods-Argonautica-ArgonauticaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +705,7 @@
 		};
 		10CF9E002527E3A30005666E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5B05B3F8F03E7D7858D51B2 /* Pods-Argonautica-ArgonauticaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

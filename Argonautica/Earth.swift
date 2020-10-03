@@ -8,9 +8,11 @@
 
 import Foundation
 import SceneKit
+import SCNLine
 
 class Earth : SCNNode {
     private let radius: CGFloat
+    private static let ORBIT_THICKNESS: Float = 0.002
 
     // Satellites that are orbiting Earth object
     private var satellites: [Satellite] = []
@@ -48,7 +50,7 @@ class Earth : SCNNode {
 
         // Configure action
         var actions: [SCNAction] = []
-        
+
         satellite.position = Float(radius) * points[0]
 
         for i in 1..<points.count {
@@ -57,12 +59,18 @@ class Earth : SCNNode {
                     to: Float(radius) * points[i],
                     duration: durations[(i + 1) % points.count]))
         }
-        
+
         let anim = SCNAction.sequence(actions)
         satellite.runAction(SCNAction.repeatForever(anim))
         self.addChildNode(satellite)
-        
-        // TODO: Draw Orbit
+
+        // Draw Orbit
+        if drawOrbit {
+            let lineGeometry = SCNGeometry.line(
+                points: points.map { p in Float(radius) * p },
+                radius: Earth.ORBIT_THICKNESS).0
+            self.addChildNode(SCNNode(geometry: lineGeometry))
+        }
     }
 }
 
