@@ -10,18 +10,27 @@ import Foundation
 import SceneKit
 
 class Satellite : SCNNode {
-    // Path to the satellite model
-    var model: String
+    // Orbit of the Satellite
     private var orbit: Orbit
 
-    init(model: String, orbit: Orbit) {
-        // TODO Initialize model
-        self.model = model
+    init(model: String, orbit: Orbit, modelScale: Float = 0.003) {
         self.orbit = orbit
         super.init();
 
         // Initialize geometry
-        self.geometry = SCNSphere(radius: 0.01)
+        let scene = SCNScene(named: "\(model).dae", inDirectory: "Models.scnassets/\(model)")!
+        let wrapper = SCNNode()
+        for node in scene.rootNode.childNodes {
+            node.geometry?.firstMaterial?.lightingModel = .constant
+            node.movabilityHint = .movable
+            wrapper.addChildNode(node)
+        }
+
+        let bbox = wrapper.boundingBox
+        wrapper.position = -modelScale * (bbox.max + bbox.min)/2.0
+        wrapper.scale = modelScale * SCNVector3(1, 1, 1)
+
+        self.addChildNode(wrapper)
     }
 
     convenience init(model: String) {
@@ -30,7 +39,6 @@ class Satellite : SCNNode {
     }
 
     required init?(coder: NSCoder) {
-        self.model = "default_model"
         // Default orbit is of normalized radius = 1.
         self.orbit = CircularOrbit(normalizedRadius: 1)
         super.init(coder: coder)

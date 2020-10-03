@@ -12,7 +12,7 @@ import SCNLine
 
 class Earth : SCNNode {
     private let radius: CGFloat
-    private static let ORBIT_THICKNESS: Float = 0.002
+    private static let ORBIT_THICKNESS: Float = 0.001
 
     // Satellites that are orbiting Earth object
     private var satellites: [Satellite] = []
@@ -57,7 +57,7 @@ class Earth : SCNNode {
             actions.append(
                 SCNAction.move(
                     to: Float(radius) * points[i],
-                    duration: durations[(i + 1) % points.count]))
+                    duration: 5 * durations[(i + 1) % points.count]))
         }
 
         let anim = SCNAction.sequence(actions)
@@ -69,6 +69,7 @@ class Earth : SCNNode {
             let lineGeometry = SCNGeometry.line(
                 points: points.map { p in Float(radius) * p },
                 radius: Earth.ORBIT_THICKNESS).0
+            lineGeometry.firstMaterial?.transparency = 0.4
             self.addChildNode(SCNNode(geometry: lineGeometry))
         }
     }
@@ -77,5 +78,13 @@ class Earth : SCNNode {
 extension SCNVector3 {
     static func * (_ scale: Float, _ vec: SCNVector3) -> SCNVector3 {
         return SCNVector3(scale * vec.x, scale * vec.y, scale * vec.z)
+    }
+
+    static func + (_ a: SCNVector3, _ b: SCNVector3) -> SCNVector3 {
+        return SCNVector3(a.x + b.x, a.y + b.y, a.z + b.z)
+    }
+
+    static func / (_ a: SCNVector3, _ scale: Float) -> SCNVector3 {
+        return (1.0/scale) * a
     }
 }
