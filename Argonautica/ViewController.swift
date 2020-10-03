@@ -30,25 +30,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
 
         let earthModel = Earth(radius: 0.05)
+        let satellite = Satellite(model: "", orbit: CircularOrbit(normalizedRadius: 2))
+        earthModel.addSatellite(satellite)
         self.sceneView.scene.rootNode.addChildNode(earthModel)
-        
-        // TODO: Refactor
-        let satellite = Satellite(model: "")
-        let testNode = SCNNode()
-        satellite.position = SCNVector3(0.07, 0, 0)
-        testNode.addChildNode(satellite)
-        let anim = CABasicAnimation(keyPath: "rotation")
-        anim.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-        anim.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
-        anim.duration = 5
-        anim.repeatCount = .infinity
-        testNode.addAnimation(anim, forKey: "spin around")
-
-        self.sceneView.scene.rootNode.addChildNode(testNode)
-        
-        let orbit = SCNTorus(ringRadius: 0.07, pipeRadius: 0.001)
-        self.sceneView.scene.rootNode.addChildNode(SCNNode(geometry: orbit))
-        // END
     }
     
     override func viewWillAppear(_ animated: Bool) {

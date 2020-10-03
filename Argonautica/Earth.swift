@@ -18,7 +18,7 @@ class Earth : SCNNode {
     init(radius: CGFloat) {
         self.radius = radius
         super.init()
-        
+
         self.geometry = SCNSphere(radius: radius)
         self.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "Diffuse")
         self.geometry?.firstMaterial?.specular.contents = UIImage(named: "Specular")
@@ -38,8 +38,36 @@ class Earth : SCNNode {
     /**
      * Adds a new Satellite
      * @param satellite: A satellite object.
+     * @param drawOrbit: Draws the trajectory of satellite, if enabled.
      */
-    public func addSatellite(_ satellite: Satellite) {
-        satellites.append(satellite)
+    public func addSatellite(_ satellite: Satellite, _ drawOrbit: Bool = true) {
+        let orbit = satellite.getOrbit()
+
+        let points = orbit.getPoints()
+        let durations = orbit.getDurations()
+
+        // Configure action
+        var actions: [SCNAction] = []
+        
+        satellite.position = Float(radius) * points[0]
+
+        for i in 1..<points.count {
+            actions.append(
+                SCNAction.move(
+                    to: Float(radius) * points[i],
+                    duration: durations[(i + 1) % points.count]))
+        }
+        
+        let anim = SCNAction.sequence(actions)
+        satellite.runAction(SCNAction.repeatForever(anim))
+        self.addChildNode(satellite)
+        
+        // TODO: Draw Orbit
+    }
+}
+
+extension SCNVector3 {
+    static func * (_ scale: Float, _ vec: SCNVector3) -> SCNVector3 {
+        return SCNVector3(scale * vec.x, scale * vec.y, scale * vec.z)
     }
 }
