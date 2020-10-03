@@ -22,7 +22,7 @@ class Earth : SCNNode {
         super.init()
 
         self.geometry = SCNSphere(radius: radius)
-        self.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "Diffuse")
+        self.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "land")
         self.geometry?.firstMaterial?.specular.contents = UIImage(named: "Specular")
         self.geometry?.firstMaterial?.emission.contents = UIImage(named: "Emission")
         self.geometry?.firstMaterial?.normal.contents = UIImage(named: "Normal")
