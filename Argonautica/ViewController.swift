@@ -13,7 +13,14 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    
+    private var earthModel: Earth? = nil
+
+    // Configures offset of the planet w.r.t. camera
+    private static let OFFSET: Float = 0.2
+
+    // Configures Earth radius
+    private static let EARTH_RADIUS: CGFloat = 0.05
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,8 +36,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
 
-        let earthModel = Earth(radius: 0.05)
-        earthModel.addSatellite(
+        earthModel = Earth(radius: ViewController.EARTH_RADIUS)
+        
+        /** Load Satellites  **/
+        earthModel?.addSatellite(
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
@@ -39,14 +48,43 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     inclination: Float.pi / 3,
                     longitudal: Float.pi / 4,
                     mu: 100.0)))
-        earthModel.addSatellite(
+        earthModel?.addSatellite(
             Satellite(
                 model: "2RU-GenericCubesat",
                 orbit: CircularOrbit(normalizedRadius: 3.5)))
 
-        self.sceneView.scene.rootNode.addChildNode(earthModel)
+        /** END load satellites **/
+
+        // Configure offset
+        earthModel?.position = SCNVector3(0, 0, -ViewController.OFFSET)
+
+        if let earthModel = earthModel {
+            self.sceneView.pointOfView?.addChildNode(earthModel)
+        }
+
+        let tapRecognizer = UITapGestureRecognizer(
+           target: self, action: #selector(handleTap))
+
+       // Set number of taps required
+       tapRecognizer.numberOfTouchesRequired = 1
+
+       // Adds the handler to the scene view
+       sceneView.addGestureRecognizer(tapRecognizer)
     }
-    
+
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if let earthModel = earthModel {
+            earthModel.removeFromParentNode()
+            if let node = self.sceneView.pointOfView {
+                earthModel.position =
+                    node.position +
+                    self.sceneView.scene.rootNode.convertVector(
+                        SCNVector3(0, 0, -ViewController.OFFSET), from: node)
+            }
+            self.sceneView.scene.rootNode.addChildNode(earthModel)
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
