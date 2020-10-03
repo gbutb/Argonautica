@@ -80,7 +80,7 @@ class KeplerianOrbit : Orbit {
      * @param longitudal: Longitudal inclination of the orbit.
      * @param mu: Normalized gravitational parameter
      */
-    convenience init(apoapsis: Float, periapsis: Float, inclination: Float, longitudal: Float, mu: Float, numPoints: UInt = 1000) {
+    convenience init(apoapsis: Float, periapsis: Float, inclination: Float, longitudal: Float, mu: Float, numPoints: UInt = 100) {
         let semiMajor = (apoapsis + periapsis) / 2.0
         let c = (apoapsis - periapsis) / 2.0
         let semiMinor = sqrt(pow(semiMajor, 2) - pow(c, 2))

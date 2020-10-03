@@ -43,15 +43,41 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
-                    apoapsis: 7,
-                    periapsis: 1.5,
-                    inclination: Float.pi / 3,
-                    longitudal: Float.pi / 4,
-                    mu: 100.0)))
+                    apoapsis: 1 + 500.0 / 6400.0,
+                    periapsis: 1 + 475.0 / 6400.0,
+                    inclination: 0,
+                    longitudal: 0,
+                    mu: Earth.muScaled)))
+
         earthModel?.addSatellite(
             Satellite(
-                model: "2RU-GenericCubesat",
-                orbit: CircularOrbit(normalizedRadius: 3.5)))
+                model: "1RU-GenericCubesat",
+                orbit: KeplerianOrbit(
+                    apoapsis: 1 + 517.0 / 6400.0,
+                    periapsis: 1 + 497.0 / 6400.0,
+                    inclination: 0,
+                    longitudal: 0,
+                    mu: Earth.muScaled)))
+
+        earthModel?.addSatellite(
+            Satellite(
+                model: "1RU-GenericCubesat",
+                orbit: KeplerianOrbit(
+                    apoapsis: 1 + 687.0 / 6400.0,
+                    periapsis: 1 + 442.0 / 6400.0,
+                    inclination: 0,
+                    longitudal: 0,
+                    mu: Earth.muScaled)))
+
+        earthModel?.addSatellite(
+            Satellite(
+                model: "1RU-GenericCubesat",
+                orbit: KeplerianOrbit(
+                    apoapsis: 1 + 35793 / 6400.0,
+                    periapsis: 1 + 35778 / 6400.0,
+                    inclination: Float.pi / 2,
+                    longitudal: 0,
+                    mu: Earth.muScaled)))
 
         /** END load satellites **/
 
