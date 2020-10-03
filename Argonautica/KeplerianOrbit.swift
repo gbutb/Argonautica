@@ -23,6 +23,7 @@ class KeplerianOrbit : Orbit {
     init(semiMajor: Float, semiMinor: Float, inclination: Float, longitudal: Float, numPoints: UInt = 1000) {
         points = []
         durations = []
+        var angles = [Float]()
 
         for i in 0..<numPoints {
             let anomaly: Float = Float(i) * 2.0 * Float.pi / Float(numPoints)
@@ -38,22 +39,38 @@ class KeplerianOrbit : Orbit {
                 point.x * sin(longitudal) + point.z * cos(longitudal))
 
             points.append(point)
+            angles.append(anomaly)
         }
 
-        for _ in 1..<(numPoints+1) {
-            durations.append(2.0/Double(numPoints))
+        for i in 1..<(numPoints+1) {
+            let previousPoint = points[Int(i-1)]
+            let currentPoint = points[Int(i) % Int(numPoints)]
+            let distance = SCNVector3.norm(previousPoint - currentPoint)
+            
+            let v =
+                (KeplerianOrbit.findVelocity(10.0, SCNVector3.norm(previousPoint), semiMajor) +
+                KeplerianOrbit.findVelocity(10.0, SCNVector3.norm(currentPoint), semiMajor)) / 2.0
+            print("Velocity is: \(v) at \(i)")
+            durations.append(Double(distance / v))
         }
     }
 
     /**
-     * @param apogee: Apogee of the orbit.
-     * @param perigee: Perigee of the orbit.
+     * Finds instantaneous velocity at a given point.
+     */
+    static func findVelocity(_ normalizedGravitationalParameter: Float, _ distance: Float, _ semiMajor: Float) -> Float {
+        return sqrt(normalizedGravitationalParameter * (2/distance - 1/semiMajor))
+    }
+
+    /**
+     * @param apoapsis: normalized apoapsis of the orbit. (From the center of mass of Earth, rather than the surface)
+     * @param periapsis: normalized periapsis of the orbit. (From the center of mass of Earth, rather than the surface)
      * @param inclination: Inclination angle of the orbit.
      * @param longitudal: Longitudal inclination of the orbit.
      */
-    convenience init(apogee: Float, perigee: Float, inclination: Float, longitudal: Float, numPoints: UInt = 1000) {
-        let semiMajor = (apogee + perigee) / 2.0
-        let c = (apogee - perigee) / 2.0
+    convenience init(apoapsis: Float, periapsis: Float, inclination: Float, longitudal: Float, numPoints: UInt = 1000) {
+        let semiMajor = (apoapsis + periapsis) / 2.0
+        let c = (apoapsis - periapsis) / 2.0
         let semiMinor = sqrt(pow(semiMajor, 2) - pow(c, 2))
         self.init(
             semiMajor: semiMajor, semiMinor: semiMinor,
@@ -70,4 +87,3 @@ class KeplerianOrbit : Orbit {
         return durations;
     }
 }
-

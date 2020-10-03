@@ -78,17 +78,3 @@ class Earth : SCNNode {
         }
     }
 }
-
-extension SCNVector3 {
-    static func * (_ scale: Float, _ vec: SCNVector3) -> SCNVector3 {
-        return SCNVector3(scale * vec.x, scale * vec.y, scale * vec.z)
-    }
-
-    static func + (_ a: SCNVector3, _ b: SCNVector3) -> SCNVector3 {
-        return SCNVector3(a.x + b.x, a.y + b.y, a.z + b.z)
-    }
-
-    static func / (_ a: SCNVector3, _ scale: Float) -> SCNVector3 {
-        return (1.0/scale) * a
-    }
-}

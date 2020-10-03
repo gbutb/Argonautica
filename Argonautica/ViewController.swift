@@ -34,8 +34,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
-                    apogee: 3,
-                    perigee: 1.5,
+                    apoapsis: 7,
+                    periapsis: 1.5,
                     inclination: Float.pi / 3,
                     longitudal: Float.pi / 4)))
         earthModel.addSatellite(

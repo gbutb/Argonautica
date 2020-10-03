@@ -12,6 +12,9 @@
 		1051962A2528952A00230FE3 /* EllipticalOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196292528952A00230FE3 /* EllipticalOrbit.swift */; };
 		1051962C2528A64F00230FE3 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1051962B2528A64F00230FE3 /* Models.scnassets */; };
 		1051962E2528BA3000230FE3 /* KeplerianOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1051962D2528BA3000230FE3 /* KeplerianOrbit.swift */; };
+		105196312528F44800230FE3 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196302528F44800230FE3 /* SCNVector3+Extensions.swift */; };
+		105196332528F4C000230FE3 /* Numerical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196322528F4C000230FE3 /* Numerical.swift */; };
+		105196352528F63B00230FE3 /* IntegrateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196342528F63B00230FE3 /* IntegrateTests.swift */; };
 		10CF2AA7252874DC00C22E68 /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF2AA6252874DC00C22E68 /* Orbit.swift */; };
 		10CF2AA92528759D00C22E68 /* CircularOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF2AA82528759D00C22E68 /* CircularOrbit.swift */; };
 		10CF9DD22527E3A10005666E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DD12527E3A10005666E /* AppDelegate.swift */; };
@@ -49,6 +52,9 @@
 		105196292528952A00230FE3 /* EllipticalOrbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticalOrbit.swift; sourceTree = "<group>"; };
 		1051962B2528A64F00230FE3 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		1051962D2528BA3000230FE3 /* KeplerianOrbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeplerianOrbit.swift; sourceTree = "<group>"; };
+		105196302528F44800230FE3 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
+		105196322528F4C000230FE3 /* Numerical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numerical.swift; sourceTree = "<group>"; };
+		105196342528F63B00230FE3 /* IntegrateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateTests.swift; sourceTree = "<group>"; };
 		10CF2AA6252874DC00C22E68 /* Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orbit.swift; sourceTree = "<group>"; };
 		10CF2AA82528759D00C22E68 /* CircularOrbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularOrbit.swift; sourceTree = "<group>"; };
 		10CF9DCE2527E3A10005666E /* Argonautica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argonautica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1051962F2528F3D900230FE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				105196302528F44800230FE3 /* SCNVector3+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		10CF9DC52527E3A10005666E = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +142,7 @@
 		10CF9DD02527E3A10005666E /* Argonautica */ = {
 			isa = PBXGroup;
 			children = (
+				1051962F2528F3D900230FE3 /* Extensions */,
 				10CF9DD12527E3A10005666E /* AppDelegate.swift */,
 				10CF9DD52527E3A10005666E /* ViewController.swift */,
 				1051962B2528A64F00230FE3 /* Models.scnassets */,
@@ -141,6 +156,7 @@
 				10CF2AA82528759D00C22E68 /* CircularOrbit.swift */,
 				105196292528952A00230FE3 /* EllipticalOrbit.swift */,
 				1051962D2528BA3000230FE3 /* KeplerianOrbit.swift */,
+				105196322528F4C000230FE3 /* Numerical.swift */,
 			);
 			path = Argonautica;
 			sourceTree = "<group>";
@@ -150,6 +166,7 @@
 			children = (
 				10CF9DE82527E3A30005666E /* ArgonauticaTests.swift */,
 				10CF9DEA2527E3A30005666E /* Info.plist */,
+				105196342528F63B00230FE3 /* IntegrateTests.swift */,
 			);
 			path = ArgonauticaTests;
 			sourceTree = "<group>";
@@ -427,6 +444,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1051962E2528BA3000230FE3 /* KeplerianOrbit.swift in Sources */,
+				105196312528F44800230FE3 /* SCNVector3+Extensions.swift in Sources */,
+				105196332528F4C000230FE3 /* Numerical.swift in Sources */,
 				10CF9DD62527E3A10005666E /* ViewController.swift in Sources */,
 				1051962A2528952A00230FE3 /* EllipticalOrbit.swift in Sources */,
 				103F632B2527E7E8001A2522 /* Satellite.swift in Sources */,
@@ -442,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10CF9DE92527E3A30005666E /* ArgonauticaTests.swift in Sources */,
+				105196352528F63B00230FE3 /* IntegrateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
