@@ -21,4 +21,9 @@ protocol Orbit {
      * Total of N durations. (Due to path being closed)
      */
     func getDurations() -> [Double]
+
+    /**
+     * Returns period of the orbit.
+     */
+    func getPeriod() -> Double
 }

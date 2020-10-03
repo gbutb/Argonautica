@@ -16,7 +16,7 @@ class Numerical {
      * @param x1: End
      * @param num: Number of steps
      */
-    static func sintegrate(f: (Float) -> (Float), x0: Float, x1: Float, num: UInt) -> Float {
+    static func sintegrate(f: (Float) -> (Float), x0: Float, x1: Float, num: UInt = 1000) -> Float {
         let step: Float = (x1 - x0) / Float(num)
         var s1: Float = f(x0 + step / 2)
         var s2: Float = 0

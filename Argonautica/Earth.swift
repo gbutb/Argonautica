@@ -44,7 +44,7 @@ class Earth : SCNNode {
      */
     public func addSatellite(_ satellite: Satellite, _ drawOrbit: Bool = true) {
         let orbit = satellite.getOrbit()
-
+        print("Added satellite with period: \(orbit.getPeriod())")
         let points = orbit.getPoints()
         let durations = orbit.getDurations()
 

@@ -15,6 +15,7 @@
 		105196312528F44800230FE3 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196302528F44800230FE3 /* SCNVector3+Extensions.swift */; };
 		105196332528F4C000230FE3 /* Numerical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196322528F4C000230FE3 /* Numerical.swift */; };
 		105196352528F63B00230FE3 /* IntegrateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105196342528F63B00230FE3 /* IntegrateTests.swift */; };
+		10519637252905C800230FE3 /* OrbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10519636252905C700230FE3 /* OrbitTests.swift */; };
 		10CF2AA7252874DC00C22E68 /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF2AA6252874DC00C22E68 /* Orbit.swift */; };
 		10CF2AA92528759D00C22E68 /* CircularOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF2AA82528759D00C22E68 /* CircularOrbit.swift */; };
 		10CF9DD22527E3A10005666E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DD12527E3A10005666E /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		105196302528F44800230FE3 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
 		105196322528F4C000230FE3 /* Numerical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numerical.swift; sourceTree = "<group>"; };
 		105196342528F63B00230FE3 /* IntegrateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateTests.swift; sourceTree = "<group>"; };
+		10519636252905C700230FE3 /* OrbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitTests.swift; sourceTree = "<group>"; };
 		10CF2AA6252874DC00C22E68 /* Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orbit.swift; sourceTree = "<group>"; };
 		10CF2AA82528759D00C22E68 /* CircularOrbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularOrbit.swift; sourceTree = "<group>"; };
 		10CF9DCE2527E3A10005666E /* Argonautica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argonautica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				10CF9DE82527E3A30005666E /* ArgonauticaTests.swift */,
 				10CF9DEA2527E3A30005666E /* Info.plist */,
 				105196342528F63B00230FE3 /* IntegrateTests.swift */,
+				10519636252905C700230FE3 /* OrbitTests.swift */,
 			);
 			path = ArgonauticaTests;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10CF9DE92527E3A30005666E /* ArgonauticaTests.swift in Sources */,
+				10519637252905C800230FE3 /* OrbitTests.swift in Sources */,
 				105196352528F63B00230FE3 /* IntegrateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

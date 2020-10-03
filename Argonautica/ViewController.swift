@@ -37,7 +37,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     apoapsis: 7,
                     periapsis: 1.5,
                     inclination: Float.pi / 3,
-                    longitudal: Float.pi / 4)))
+                    longitudal: Float.pi / 4,
+                    mu: 100.0)))
         earthModel.addSatellite(
             Satellite(
                 model: "2RU-GenericCubesat",
