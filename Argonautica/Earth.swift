@@ -44,7 +44,7 @@ class Earth : SCNNode {
      */
     public func addSatellite(_ satellite: Satellite, _ drawOrbit: Bool = true) {
         let orbit = satellite.getOrbit()
-
+        print("Added satellite with period: \(orbit.getPeriod())")
         let points = orbit.getPoints()
         let durations = orbit.getDurations()
 
@@ -66,25 +66,15 @@ class Earth : SCNNode {
 
         // Draw Orbit
         if drawOrbit {
+            var scaledPoints = points.map { p in Float(radius) * p }
+            if let first = scaledPoints.first {
+                scaledPoints.append(first)
+            }
             let lineGeometry = SCNGeometry.line(
-                points: points.map { p in Float(radius) * p },
+                points: scaledPoints,
                 radius: Earth.ORBIT_THICKNESS).0
             lineGeometry.firstMaterial?.transparency = 0.4
             self.addChildNode(SCNNode(geometry: lineGeometry))
         }
-    }
-}
-
-extension SCNVector3 {
-    static func * (_ scale: Float, _ vec: SCNVector3) -> SCNVector3 {
-        return SCNVector3(scale * vec.x, scale * vec.y, scale * vec.z)
-    }
-
-    static func + (_ a: SCNVector3, _ b: SCNVector3) -> SCNVector3 {
-        return SCNVector3(a.x + b.x, a.y + b.y, a.z + b.z)
-    }
-
-    static func / (_ a: SCNVector3, _ scale: Float) -> SCNVector3 {
-        return (1.0/scale) * a
     }
 }

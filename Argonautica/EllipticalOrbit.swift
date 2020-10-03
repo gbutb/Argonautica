@@ -41,4 +41,8 @@ class EllipticalOrbit : Orbit {
     func getDurations() -> [Double] {
         return durations;
     }
+    
+    func getPeriod() -> Double {
+        return 1.0
+    }
 }
