@@ -66,8 +66,12 @@ class Earth : SCNNode {
 
         // Draw Orbit
         if drawOrbit {
+            var scaledPoints = points.map { p in Float(radius) * p }
+            if let first = scaledPoints.first {
+                scaledPoints.append(first)
+            }
             let lineGeometry = SCNGeometry.line(
-                points: points.map { p in Float(radius) * p },
+                points: scaledPoints,
                 radius: Earth.ORBIT_THICKNESS).0
             lineGeometry.firstMaterial?.transparency = 0.4
             self.addChildNode(SCNNode(geometry: lineGeometry))
