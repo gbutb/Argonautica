@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.2.1)
   - SCNLine (1.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - SCNLine (~> 1.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - SCNLine
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   SCNLine: 151a8f5f7b21472de3edaf6d961a569bb846b66a
 
-PODFILE CHECKSUM: d0a50fbf74d5ab51248324d2653bbd02b5102705
+PODFILE CHECKSUM: cc380b0e2bc96f9cc32400c98156299c493cbc4b
 
 COCOAPODS: 1.9.3

@@ -13,7 +13,7 @@ import SCNLine
 class Earth : SCNNode {
     public static let EARTH_RADIUS: Float = 6400e3
     public static let muScaled: Float = 10e6 * 6.67e-11 * 5.9722e24 / pow(Earth.EARTH_RADIUS, 3)
-    public static let PERIOD: Double = 1.0 // 24 * 60 * 60
+    public static let PERIOD: Double = 100.0 // 24 * 60 * 60
 
     private let radius: CGFloat
     private static let ORBIT_THICKNESS: Float = 0.0003
@@ -46,6 +46,13 @@ class Earth : SCNNode {
                     by: CGFloat(2 * Float.pi),
                     around: SCNVector3(0, 1, 0),
                     duration: Earth.PERIOD)))
+        
+        /** TODO REMOVE, test node **/
+        let indicator = SCNNode(geometry: SCNSphere(radius: 0.001))
+        indicator.position = Earth.convertCoordinates(0, 0, Float(radius))
+        self.addChildNode(indicator)
+        /** END TODO **/
+        
 
         // Add the object to space
         space?.addChildNode(self)
@@ -54,6 +61,20 @@ class Earth : SCNNode {
     required init?(coder: NSCoder) {
         self.radius = 0.05
         super.init(coder: coder)
+    }
+
+    /**
+     * Converts coordinates to local coordinate system of the Earth node
+     * @param longitude: Longitude, lambda
+     * @param latitude: Latitude, phi
+     * @param altitude: Altitude, r
+     * @return (x, y, z)
+     */
+    static func convertCoordinates(_ longitude: Float, _ latitude: Float, _ altitude: Float) -> SCNVector3 {
+        return SCNVector3(
+            altitude * cos(latitude) * sin(longitude), // x
+            altitude * sin(latitude),                  // y
+            altitude * cos(latitude) * cos(longitude)) // z
     }
 
     /**

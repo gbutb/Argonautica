@@ -7,6 +7,7 @@ target 'Argonautica' do
 
   # Pods for Argonautica
   pod 'SCNLine', '~> 1.0'
+  pod 'Alamofire', '~> 5.2'
 
   target 'ArgonauticaTests' do
     inherit! :search_paths
