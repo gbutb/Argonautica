@@ -42,48 +42,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         space = Space()
         let earthModel = Earth(radius: ViewController.EARTH_RADIUS, space: space)
 
-        /** Load Satellites  **/
-        earthModel.addSatellite(
-            Satellite(
-                model: "1RU-GenericCubesat",
-                orbit: KeplerianOrbit(
-                    apoapsis: 1 + 500.0 / 6400.0,
-                    periapsis: 1 + 475.0 / 6400.0,
-                    inclination: 0,
-                    longitudal: 0,
-                    mu: Earth.muScaled)))
-
-        earthModel.addSatellite(
-            Satellite(
-                model: "1RU-GenericCubesat",
-                orbit: KeplerianOrbit(
-                    apoapsis: 1 + 517.0 / 6400.0,
-                    periapsis: 1 + 497.0 / 6400.0,
-                    inclination: 0,
-                    longitudal: 0,
-                    mu: Earth.muScaled)))
-
-        earthModel.addSatellite(
-            Satellite(
-                model: "1RU-GenericCubesat",
-                orbit: KeplerianOrbit(
-                    apoapsis: 1 + 687.0 / 6400.0,
-                    periapsis: 1 + 442.0 / 6400.0,
-                    inclination: 0,
-                    longitudal: 0,
-                    mu: Earth.muScaled)))
-
-        earthModel.addSatellite(
-            Satellite(
-                model: "1RU-GenericCubesat",
-                orbit: KeplerianOrbit(
-                    apoapsis: 1 + 35793 / 6400.0,
-                    periapsis: 1 + 35778 / 6400.0,
-                    inclination: Float.pi / 2,
-                    longitudal: 0,
-                    mu: Earth.muScaled)))
-
-        /** END load satellites **/
+        // Add satellites
+        for sat in Satellites.satellites["Ocean"]! {
+            let orbit = KeplerianOrbit(
+                apoapsis: 1 + Float((sat["apogee"] as! Double)/6400.0),
+                periapsis: 1 + Float((sat["perigee"] as! Double)/6400.0),
+                inclination: Float.pi * Float(sat["inclination"] as! Double) / 180.0,
+                longitudal: Float.pi *  Float(sat["ascendingNode"] as! Double) / 180.0, mu: Earth.muScaled)
+            let satellite = Satellite(model: "1RU-GenericCubesat", orbit: orbit)
+            earthModel.addSatellite(satellite)
+        }
 
         // Configure offset
         space?.position = SCNVector3(0, 0, -ViewController.OFFSET)
