@@ -6,4 +6,4 @@ Run the following command from the root of the repository:
 > pod install
 ```
 
-> **Note**: In order to open the project, use `Argonautica.xcworkspace`
+> **Note**: In order to open the project, use `Argonautica.xcworkspace`.
