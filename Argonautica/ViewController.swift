@@ -100,6 +100,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
        // Adds the handler to the scene view
        sceneView.addGestureRecognizer(tapRecognizer)
+        
+        // Pinch
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(sender:)))
+        sceneView.addGestureRecognizer(pinch)
     }
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
@@ -112,6 +116,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         SCNVector3(0, 0, -ViewController.OFFSET), from: node)
             }
             self.sceneView.scene.rootNode.addChildNode(space)
+        }
+    }
+    
+    @objc func handlePinch(sender: UIPinchGestureRecognizer) {
+        guard sender.view != nil else { return }
+        if sender.state == .began || sender.state == .changed {
+            let pinchScaleX : CGFloat = sender.scale * CGFloat((space!.scale.x))
+            let pinchScaleY : CGFloat = sender.scale * CGFloat((space!.scale.y))
+            let pinchScaleZ : CGFloat = sender.scale * CGFloat((space!.scale.z))
+            space!.scale = SCNVector3(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+            sender.scale = 1.0
         }
     }
 

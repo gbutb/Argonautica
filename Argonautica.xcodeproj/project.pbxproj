@@ -652,13 +652,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SBP89ULS7T;
+				DEVELOPMENT_TEAM = W72MG2Z9L8;
 				INFOPLIST_FILE = Argonautica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Argonautica.Argonautica;
+				PRODUCT_BUNDLE_IDENTIFIER = Argonautica.Argonautica13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -671,13 +671,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SBP89ULS7T;
+				DEVELOPMENT_TEAM = W72MG2Z9L8;
 				INFOPLIST_FILE = Argonautica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Argonautica.Argonautica;
+				PRODUCT_BUNDLE_IDENTIFIER = Argonautica.Argonautica13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
