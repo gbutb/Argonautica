@@ -29,7 +29,7 @@ class KeplerianOrbit : Orbit {
      * @param mu: Normalized gravitational parameter
      * @param numPoints: Total number of points
      */
-    init(semiMajor: Float, semiMinor: Float, inclination: Float, longitudal: Float, mu: Float, numPoints: UInt = 1000) {
+    init(semiMajor: Float, semiMinor: Float, inclination: Float, longitudal: Float, mu: Float, offset: Float = 0.0, numPoints: UInt = 1000) {
         self.semiMajor = semiMajor
         self.semiMinor = semiMinor
         self.inclination = inclination
@@ -43,7 +43,7 @@ class KeplerianOrbit : Orbit {
         var angles = [Float]()
 
         for i in 0..<numPoints {
-            let anomaly: Float = Float(i) * 2.0 * Float.pi / Float(numPoints)
+            let anomaly: Float = offset + Float(i) * 2.0 * Float.pi / Float(numPoints)
             var point = SCNVector3(semiMajor * cos(anomaly) - c, 0, semiMinor * sin(anomaly))
             point = SCNVector3(
                 point.x,
@@ -80,7 +80,7 @@ class KeplerianOrbit : Orbit {
      * @param longitudal: Longitudal inclination of the orbit.
      * @param mu: Normalized gravitational parameter
      */
-    convenience init(apoapsis: Float, periapsis: Float, inclination: Float, longitudal: Float, mu: Float, numPoints: UInt = 1000) {
+    convenience init(apoapsis: Float, periapsis: Float, inclination: Float, longitudal: Float, mu: Float, offset: Float = 0.0, numPoints: UInt = 100) {
         let semiMajor = (apoapsis + periapsis) / 2.0
         let c = (apoapsis - periapsis) / 2.0
         let semiMinor = sqrt(pow(semiMajor, 2) - pow(c, 2))
@@ -88,6 +88,7 @@ class KeplerianOrbit : Orbit {
             semiMajor: semiMajor, semiMinor: semiMinor,
             inclination: inclination, longitudal: longitudal,
             mu: mu,
+            offset: offset,
             numPoints: numPoints)
     }
 

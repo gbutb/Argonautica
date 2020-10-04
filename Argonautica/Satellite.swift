@@ -13,7 +13,7 @@ class Satellite : SCNNode {
     // Orbit of the Satellite
     private var orbit: Orbit
 
-    init(model: String, orbit: Orbit, modelScale: Float = 0.003) {
+    init(model: String, orbit: Orbit) {
         self.orbit = orbit
         super.init();
 
@@ -27,8 +27,9 @@ class Satellite : SCNNode {
         }
 
         let bbox = wrapper.boundingBox
-        wrapper.position = -modelScale * (bbox.max + bbox.min)/2.0
-        wrapper.scale = modelScale * SCNVector3(1, 1, 1)
+        let scale = 0.01 / SCNVector3.norm(bbox.max - bbox.min)
+        wrapper.position = -scale * (bbox.max + bbox.min)/2.0
+        wrapper.scale = scale * SCNVector3(1, 1, 1)
 
         self.addChildNode(wrapper)
     }
