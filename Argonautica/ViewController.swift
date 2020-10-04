@@ -13,7 +13,7 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    private var earthModel: Earth? = nil
+    private var space: Space? = nil
 
     // Configures offset of the planet w.r.t. camera
     private static let OFFSET: Float = 0.2
@@ -36,10 +36,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
 
-        earthModel = Earth(radius: ViewController.EARTH_RADIUS)
-        
+        space = Space()
+        let earthModel = Earth(radius: ViewController.EARTH_RADIUS, space: space)
+
         /** Load Satellites  **/
-        earthModel?.addSatellite(
+        earthModel.addSatellite(
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
@@ -49,7 +50,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     longitudal: 0,
                     mu: Earth.muScaled)))
 
-        earthModel?.addSatellite(
+        earthModel.addSatellite(
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
@@ -59,7 +60,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     longitudal: 0,
                     mu: Earth.muScaled)))
 
-        earthModel?.addSatellite(
+        earthModel.addSatellite(
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
@@ -69,7 +70,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     longitudal: 0,
                     mu: Earth.muScaled)))
 
-        earthModel?.addSatellite(
+        earthModel.addSatellite(
             Satellite(
                 model: "1RU-GenericCubesat",
                 orbit: KeplerianOrbit(
@@ -82,10 +83,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         /** END load satellites **/
 
         // Configure offset
-        earthModel?.position = SCNVector3(0, 0, -ViewController.OFFSET)
+        space?.position = SCNVector3(0, 0, -ViewController.OFFSET)
 
-        if let earthModel = earthModel {
-            self.sceneView.pointOfView?.addChildNode(earthModel)
+        if let space = space {
+            self.sceneView.pointOfView?.addChildNode(space)
         }
 
         let tapRecognizer = UITapGestureRecognizer(
@@ -99,15 +100,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
-        if let earthModel = earthModel {
-            earthModel.removeFromParentNode()
+        if let space = space {
+            space.removeFromParentNode()
             if let node = self.sceneView.pointOfView {
-                earthModel.position =
+                space.position =
                     node.position +
                     self.sceneView.scene.rootNode.convertVector(
                         SCNVector3(0, 0, -ViewController.OFFSET), from: node)
             }
-            self.sceneView.scene.rootNode.addChildNode(earthModel)
+            self.sceneView.scene.rootNode.addChildNode(space)
         }
     }
 

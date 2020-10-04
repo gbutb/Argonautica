@@ -25,6 +25,7 @@
 		10CF9DDE2527E3A30005666E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10CF9DDC2527E3A30005666E /* LaunchScreen.storyboard */; };
 		10CF9DE92527E3A30005666E /* ArgonauticaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DE82527E3A30005666E /* ArgonauticaTests.swift */; };
 		10CF9DF42527E3A30005666E /* ArgonauticaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF9DF32527E3A30005666E /* ArgonauticaUITests.swift */; };
+		10D5C0C12529DE12005F964C /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D5C0C02529DE12005F964C /* Space.swift */; };
 		2391A4F5F21A44819CAA1874 /* Pods_ArgonauticaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32ADE751C0664E035DA152E /* Pods_ArgonauticaTests.framework */; };
 		55FD70C0635529402F4DF26C /* Pods_Argonautica_ArgonauticaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769E09078239B6A5B7ED610F /* Pods_Argonautica_ArgonauticaUITests.framework */; };
 		FBFC444397E5CF1119A35ACE /* Pods_Argonautica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D242CD85270000997944906D /* Pods_Argonautica.framework */; };
@@ -72,6 +73,7 @@
 		10CF9DEF2527E3A30005666E /* ArgonauticaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgonauticaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CF9DF32527E3A30005666E /* ArgonauticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgonauticaUITests.swift; sourceTree = "<group>"; };
 		10CF9DF52527E3A30005666E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10D5C0C02529DE12005F964C /* Space.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
 		2E28F554D89D408969F4B5E8 /* Pods-ArgonauticaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgonauticaTests.debug.xcconfig"; path = "Target Support Files/Pods-ArgonauticaTests/Pods-ArgonauticaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		578F044463D42D6F5C6F8748 /* Pods-Argonautica-ArgonauticaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argonautica-ArgonauticaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Argonautica-ArgonauticaUITests/Pods-Argonautica-ArgonauticaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		58C70D69301CF0201A1BF6B7 /* Pods-Argonautica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argonautica.release.xcconfig"; path = "Target Support Files/Pods-Argonautica/Pods-Argonautica.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				105196292528952A00230FE3 /* EllipticalOrbit.swift */,
 				1051962D2528BA3000230FE3 /* KeplerianOrbit.swift */,
 				105196322528F4C000230FE3 /* Numerical.swift */,
+				10D5C0C02529DE12005F964C /* Space.swift */,
 			);
 			path = Argonautica;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1051962E2528BA3000230FE3 /* KeplerianOrbit.swift in Sources */,
+				10D5C0C12529DE12005F964C /* Space.swift in Sources */,
 				105196312528F44800230FE3 /* SCNVector3+Extensions.swift in Sources */,
 				105196332528F4C000230FE3 /* Numerical.swift in Sources */,
 				10CF9DD62527E3A10005666E /* ViewController.swift in Sources */,

@@ -13,6 +13,7 @@ import SCNLine
 class Earth : SCNNode {
     public static let EARTH_RADIUS: Float = 6400e3
     public static let muScaled: Float = 10e6 * 6.67e-11 * 5.9722e24 / pow(Earth.EARTH_RADIUS, 3)
+    public static let PERIOD: Double = 1.0 // 24 * 60 * 60
 
     private let radius: CGFloat
     private static let ORBIT_THICKNESS: Float = 0.0003
@@ -20,8 +21,12 @@ class Earth : SCNNode {
     // Satellites that are orbiting Earth object
     private var satellites: [Satellite] = []
 
-    init(radius: CGFloat) {
+    // Space wheere all objects will be placed to
+    private weak var space: Space?
+
+    init(radius: CGFloat, space: Space?) {
         self.radius = radius
+        self.space = space
         super.init()
 
         self.geometry = SCNSphere(radius: radius)
@@ -33,6 +38,17 @@ class Earth : SCNNode {
 
         self.geometry?.firstMaterial?.transparency = 1
         self.geometry?.firstMaterial?.shininess = 50
+
+        // Configure rotation
+        self.runAction(
+            SCNAction.repeatForever(
+                SCNAction.rotate(
+                    by: CGFloat(2 * Float.pi),
+                    around: SCNVector3(0, 1, 0),
+                    duration: Earth.PERIOD)))
+
+        // Add the object to space
+        space?.addChildNode(self)
     }
 
     required init?(coder: NSCoder) {
@@ -65,7 +81,7 @@ class Earth : SCNNode {
 
         let anim = SCNAction.sequence(actions)
         satellite.runAction(SCNAction.repeatForever(anim))
-        self.addChildNode(satellite)
+        space?.addChildNode(satellite)
 
         // Draw Orbit
         if drawOrbit {
@@ -77,7 +93,7 @@ class Earth : SCNNode {
                 points: scaledPoints,
                 radius: Earth.ORBIT_THICKNESS).0
             lineGeometry.firstMaterial?.transparency = 0.4
-            self.addChildNode(SCNNode(geometry: lineGeometry))
+            space?.addChildNode(SCNNode(geometry: lineGeometry))
         }
     }
 }
