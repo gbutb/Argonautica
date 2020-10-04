@@ -13,7 +13,14 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    
+    private var space: Space? = nil
+
+    // Configures offset of the planet w.r.t. camera
+    private static let OFFSET: Float = 0.2
+
+    // Configures Earth radius
+    private static let EARTH_RADIUS: CGFloat = 0.05
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,27 +33,77 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a new scene
         let scene = SCNScene()
 
+        // TODO: Remove this
+        N2YOSatellite.getPosition(25544, 0, 0, 0) { position in print(position) }
+
         // Set the scene to the view
         sceneView.scene = scene
 
-        let earthModel = Earth(radius: 0.05)
-        earthModel.addSatellite(
-            Satellite(
-                model: "1RU-GenericCubesat",
-                orbit: KeplerianOrbit(
-                    apoapsis: 7,
-                    periapsis: 1.5,
-                    inclination: Float.pi / 3,
-                    longitudal: Float.pi / 4,
-                    mu: 100.0)))
-        earthModel.addSatellite(
-            Satellite(
-                model: "2RU-GenericCubesat",
-                orbit: CircularOrbit(normalizedRadius: 3.5)))
+        space = Space()
+        let earthModel = Earth(radius: ViewController.EARTH_RADIUS, space: space)
 
-        self.sceneView.scene.rootNode.addChildNode(earthModel)
+        // Add satellites
+        for (key, value) in Satellites.satellites {
+            for sat in value {
+                N2YOSatellite.getPosition(UInt(sat["norad"] as! Int), 0, 0, 0) {
+                    position in
+                    let orbit = KeplerianOrbit(
+                        apoapsis: 1 + Float((sat["apogee"] as! Double)/6400.0),
+                        periapsis: 1 + Float((sat["perigee"] as! Double)/6400.0),
+                        inclination: Float.pi * Float(sat["inclination"] as! Double) / 180.0,
+                        longitudal: Float.pi *  Float(sat["ascendingNode"] as! Double) / 180.0, mu: Earth.muScaled,
+                        offset: position.azimuth)
+                    let satellite = Satellite(model: key, orbit: orbit)
+                    earthModel.addSatellite(satellite)
+                }
+            }
+        }
+
+        // Configure offset
+        space?.position = SCNVector3(0, 0, -ViewController.OFFSET)
+
+        if let space = space {
+            self.sceneView.pointOfView?.addChildNode(space)
+        }
+
+        let tapRecognizer = UITapGestureRecognizer(
+           target: self, action: #selector(handleTap))
+
+       // Set number of taps required
+       tapRecognizer.numberOfTouchesRequired = 1
+
+       // Adds the handler to the scene view
+       sceneView.addGestureRecognizer(tapRecognizer)
+        
+        // Pinch
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(sender:)))
+        sceneView.addGestureRecognizer(pinch)
+    }
+
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if let space = space {
+            space.removeFromParentNode()
+            if let node = self.sceneView.pointOfView {
+                space.position =
+                    node.position +
+                    self.sceneView.scene.rootNode.convertVector(
+                        SCNVector3(0, 0, -ViewController.OFFSET), from: node)
+            }
+            self.sceneView.scene.rootNode.addChildNode(space)
+        }
     }
     
+    @objc func handlePinch(sender: UIPinchGestureRecognizer) {
+        guard sender.view != nil else { return }
+        if sender.state == .began || sender.state == .changed {
+            let pinchScaleX : CGFloat = sender.scale * CGFloat((space!.scale.x))
+            let pinchScaleY : CGFloat = sender.scale * CGFloat((space!.scale.y))
+            let pinchScaleZ : CGFloat = sender.scale * CGFloat((space!.scale.z))
+            space!.scale = SCNVector3(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+            sender.scale = 1.0
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

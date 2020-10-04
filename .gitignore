@@ -47,3 +47,6 @@ DerivedData/
 
 ## Ignore Pods
 Pods/
+
+## Ignore data
+data/
