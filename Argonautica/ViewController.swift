@@ -33,6 +33,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a new scene
         let scene = SCNScene()
 
+        // TODO: Remove this
+        N2YOSatellite.getPosition(25544, 0, 0, 0) { position in print(position) }
+
         // Set the scene to the view
         sceneView.scene = scene
 
