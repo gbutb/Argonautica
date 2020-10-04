@@ -47,3 +47,8 @@ DerivedData/
 
 ## Ignore Pods
 Pods/
+
+
+## Ignore keys
+*.pub
+*.ssh
