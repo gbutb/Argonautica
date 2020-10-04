@@ -43,14 +43,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let earthModel = Earth(radius: ViewController.EARTH_RADIUS, space: space)
 
         // Add satellites
-        for sat in Satellites.satellites["Ocean"]! {
-            let orbit = KeplerianOrbit(
-                apoapsis: 1 + Float((sat["apogee"] as! Double)/6400.0),
-                periapsis: 1 + Float((sat["perigee"] as! Double)/6400.0),
-                inclination: Float.pi * Float(sat["inclination"] as! Double) / 180.0,
-                longitudal: Float.pi *  Float(sat["ascendingNode"] as! Double) / 180.0, mu: Earth.muScaled)
-            let satellite = Satellite(model: "1RU-GenericCubesat", orbit: orbit)
-            earthModel.addSatellite(satellite)
+        for (key, value) in Satellites.satellites {
+            for sat in value {
+                N2YOSatellite.getPosition(UInt(sat["norad"] as! Int), 0, 0, 0) {
+                    position in
+                    let orbit = KeplerianOrbit(
+                        apoapsis: 1 + Float((sat["apogee"] as! Double)/6400.0),
+                        periapsis: 1 + Float((sat["perigee"] as! Double)/6400.0),
+                        inclination: Float.pi * Float(sat["inclination"] as! Double) / 180.0,
+                        longitudal: Float.pi *  Float(sat["ascendingNode"] as! Double) / 180.0, mu: Earth.muScaled,
+                        offset: position.azimuth)
+                    let satellite = Satellite(model: key, orbit: orbit)
+                    earthModel.addSatellite(satellite)
+                }
+            }
         }
 
         // Configure offset

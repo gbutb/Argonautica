@@ -12,11 +12,11 @@ import SCNLine
 
 class Earth : SCNNode {
     public static let EARTH_RADIUS: Float = 6400e3
-    public static let muScaled: Float = 10e6 * 6.67e-11 * 5.9722e24 / pow(Earth.EARTH_RADIUS, 3)
+    public static let muScaled: Float = 1e6 * 6.67e-11 * 5.9722e24 / pow(Earth.EARTH_RADIUS, 3)
     public static let PERIOD: Double = 100.0 // 24 * 60 * 60
 
     private let radius: CGFloat
-    private static let ORBIT_THICKNESS: Float = 0.0003
+    private static let ORBIT_THICKNESS: Float = 0.0001
 
     // Satellites that are orbiting Earth object
     private var satellites: [Satellite] = []
